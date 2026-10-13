@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charlie Li</title>
+<meta name="description" content="Charlie Li — curator, art advisor and founder of Curio Party Art Gallery and Curio Atelier, Toronto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a museum wall. Hero pairs the name with a salon-hung wall of frames;
+   every body section is written like a wall label (title, date, medium line, text). */
+:root{
+  --wall:#E6E8E2;       /* pale museum-grey wall */
+  --wall-2:#DADDD5;     /* recessed panel */
+  --ink:#1D2220;        /* text */
+  --ink-soft:#56605B;   /* secondary text */
+  --accent:#24505E;     /* deep gallery blue */
+  --gilt:#A8854F;       /* frame moulding */
+  --mat:#F7F6F1;        /* frame mat / label card */
+  --rule:#C3C8BF;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Figtree", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+:root{color-scheme:light}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--wall);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:72rem;margin:0 auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+a{color:var(--accent);text-underline-offset:.2em}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0}
+p{margin:0}
+.label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* Header */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--wall) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.9rem;flex-wrap:wrap}
+.mark{font-family:var(--display);font-size:1.25rem;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.25rem;flex-wrap:wrap}
+nav a{font-size:.875rem;color:var(--ink-soft);text-decoration:none}
+nav a:hover{color:var(--ink)}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(2rem,5vw,4.5rem);align-items:center;padding-block:clamp(3rem,8vw,6rem)}
+.hero h1{font-size:clamp(3rem,8vw,5.75rem);line-height:.95;letter-spacing:-.015em}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero .lede{margin-top:1.5rem;font-size:1.2rem;max-width:34ch;color:var(--ink)}
+.hero .roles{margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:.5rem 1.25rem}
+.cta{margin-top:2.25rem;display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;font-size:.9rem;font-weight:500;padding:.7rem 1.2rem;border:1px solid var(--ink);color:var(--ink);text-decoration:none;border-radius:2px}
+.btn.primary{background:var(--ink);color:var(--wall)}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary:hover{background:var(--accent);color:var(--wall)}
+
+/* Salon wall of frames — swap each .art for an <img> later */
+.salon{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(2.6rem,5.2vw,3.9rem);gap:clamp(.6rem,1.4vw,1rem)}
+.frame{background:var(--mat);border:clamp(5px,.8vw,9px) solid var(--gilt);box-shadow:0 10px 22px -14px rgba(0,0,0,.55),inset 0 0 0 1px rgba(0,0,0,.08);padding:clamp(6px,1vw,12px);display:flex;position:relative}
+.frame.thin{border-width:3px;border-color:var(--ink)}
+.art{flex:1;min-width:0;border-radius:1px}
+.frame img{flex:1;min-width:0;width:100%;height:100%;object-fit:cover}
+.f1{grid-column:1/4;grid-row:1/4}.f2{grid-column:4/6;grid-row:1/3}.f3{grid-column:6/7;grid-row:2/4}
+.f4{grid-column:4/6;grid-row:3/5}.f5{grid-column:1/3;grid-row:4/6}.f6{grid-column:3/4;grid-row:4/5}
+.f7{grid-column:6/7;grid-row:4/6}.f8{grid-column:3/6;grid-row:5/7}.f9{grid-column:1/3;grid-row:6/7}
+.a1{background:radial-gradient(circle at 30% 35%,#E7B96A 0 18%,transparent 19%),linear-gradient(180deg,#2E5A66 0 58%,#3F6E58 58% 100%)}
+.a2{background:repeating-linear-gradient(90deg,#B7472A 0 22%,#EAD9B7 22% 30%,#1F3B4D 30% 52%,#EAD9B7 52% 58%)}
+.a3{background:linear-gradient(160deg,#D9C6A3,#9C7B54)}
+.a4{background:radial-gradient(ellipse at 50% 60%,#C3D1C0 0 30%,#5E7A6A 31% 100%)}
+.a5{background:conic-gradient(from 200deg at 40% 60%,#2B2F3A,#7C3B3B,#D69B5A,#2B2F3A)}
+.a6{background:#1F3B4D}
+.a7{background:linear-gradient(180deg,#E9DCC2 0 50%,#C9573C 50%)}
+.a8{background:linear-gradient(90deg,#F0E6D0 0 33%,#8FA7A0 33% 66%,#2E4652 66%)}
+.a9{background:radial-gradient(circle at 70% 40%,#F2D48A 0 12%,#33424F 13%)}
+.caption{margin-top:.9rem;text-align:right}
+.caption a{color:inherit}
+.frame.photo{padding:0;border:0;background:none;box-shadow:none;max-width:100%;animation:none}
+.frame.photo img{display:block;height:auto;aspect-ratio:3/4;object-fit:cover}
+.hero figure .frame.photo{max-width:30rem;margin-left:auto}
+#about .sec-head{grid-template-columns:minmax(0,18rem) minmax(0,1fr)}
+.about-photo{margin:1.75rem 0 0}
+@media (max-width:820px){#about .sec-head{grid-template-columns:minmax(0,1fr)}.about-photo{max-width:22rem}.hero figure .frame.photo{margin:0 auto}}
+
+/* Sections */
+section{border-top:1px solid var(--rule)}
+section .wrap{padding-block:clamp(3.5rem,7vw,5.5rem)}
+.sec-head{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+.sec-head h2{font-size:clamp(2rem,4vw,2.75rem);line-height:1.05}
+.sec-head .label{display:block;margin-bottom:.6rem}
+.prose{max-width:62ch;display:grid;gap:1.1rem}
+.prose p.big{font-family:var(--display);font-size:clamp(1.35rem,2.4vw,1.7rem);line-height:1.35}
+
+/* Wall labels */
+.labels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+@media (max-width:700px){.labels{grid-template-columns:minmax(0,1fr)}}
+.wl{background:var(--mat);padding:1.5rem 1.5rem 1.6rem;border:1px solid var(--rule);display:grid;gap:.35rem;align-content:start}
+.wl h3{font-size:1.45rem;line-height:1.15}
+.wl .meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.wl .medium{font-style:italic;font-size:.95rem;color:var(--ink-soft)}
+.wl p.text{margin-top:.75rem;font-size:.97rem}
+.wl a{font-size:.9rem;margin-top:.5rem}
+
+/* Exhibition feature */
+.feature{margin-top:2.75rem;display:grid;align-items:start;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,2.5rem);background:var(--mat);border:1px solid var(--rule);padding:clamp(1rem,2vw,1.5rem)}
+.feature-photos{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.feature-photos{align-items:start}
+.feature-photos img{width:100%;height:auto;min-height:0;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--wall-2)}
+.feature-photos img.big{grid-column:1/-1;aspect-ratio:16/10}
+.feature-text{display:grid;gap:.45rem;align-content:start}
+.feature-text h3{font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.1}
+.feature-text .meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft)}
+.feature-text .medium{font-style:italic;color:var(--ink-soft);font-size:.95rem}
+.feature-text p{font-size:.98rem}
+.feature-text .artists{font-size:.85rem;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:.7rem;margin-top:.3rem}
+@media (max-width:820px){.feature{grid-template-columns:minmax(0,1fr)}}
+/* Client homes */
+.sub{font-size:1.5rem;margin:3.25rem 0 1.25rem}
+.homes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:1.25rem}
+.home{margin:0;display:grid;gap:.6rem;align-content:start}
+.home img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--wall-2)}
+.home figcaption{display:grid;gap:.1rem;font-size:.88rem}
+.home figcaption span{color:var(--ink-soft)}
+.home .credit{font-family:var(--mono);font-size:.7rem;letter-spacing:.03em}
+/* Advisory list */
+.services{margin-top:2.75rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:0;border-top:1px solid var(--ink)}
+.svc{padding:1.4rem 1.4rem 1.6rem 0;border-bottom:1px solid var(--rule)}
+.svc h3{font-size:1.25rem;margin-bottom:.4rem}
+.svc p{font-size:.95rem;color:var(--ink-soft)}
+
+/* Journal */
+.journal{margin-top:2.5rem;display:grid}
+.entry{display:grid;grid-template-columns:8rem minmax(0,1fr) auto;gap:1rem 2rem;padding-block:1.25rem;border-bottom:1px solid var(--rule);align-items:baseline}
+.entry:first-child{border-top:1px solid var(--ink)}
+.entry h3{font-size:1.3rem;line-height:1.25}
+.entry p{font-size:.95rem;color:var(--ink-soft);margin-top:.25rem}
+a.plain{color:inherit;text-decoration:none}a.plain:hover{color:var(--accent);text-decoration:underline}
+.more{margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap}
+.entry.featured{grid-template-columns:8rem minmax(0,1fr) auto}
+.entry .thumb{grid-column:1;grid-row:1/3;width:8rem;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--wall-2)}
+.entry.featured > .label{grid-column:2}
+.entry.featured > div{grid-column:2}
+.entry.featured > .pill{grid-column:3;grid-row:1}
+@media (max-width:820px){.entry.featured{grid-template-columns:6rem minmax(0,1fr)}.entry .thumb{width:6rem}.entry.featured > .pill{grid-column:2;grid-row:auto}}
+.pill{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rule);border-radius:99px;color:var(--ink-soft);white-space:nowrap}
+
+/* CV */
+.cv{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:2.5rem}
+.cv h3{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1rem}
+.cv ul{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.cv li strong{display:block;font-weight:600}
+.cv li span{font-size:.92rem;color:var(--ink-soft)}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.tags span{font-size:.85rem;padding:.25rem .65rem;background:var(--wall-2);border-radius:2px;color:var(--ink)}
+
+/* Contact */
+.contact{background:var(--wall-2)}
+.contact h2{font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.05;max-width:16ch}
+.contact .row{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.email{font-family:var(--mono);font-size:1rem;padding:.65rem 1rem;background:var(--mat);border:1px solid var(--rule);user-select:all}
+button.copy{font:500 .9rem var(--body);padding:.7rem 1.1rem;background:var(--ink);color:var(--wall);border:0;border-radius:2px;cursor:pointer}
+button.copy:hover{background:var(--accent)}
+footer{border-top:1px solid var(--rule)}
+footer .wrap{padding-block:1.75rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .sec-head{grid-template-columns:minmax(0,1fr)}
+  .entry{grid-template-columns:minmax(0,1fr)}
+  .entry a.plain{color:inherit;text-decoration:none}a.plain:hover{color:var(--accent);text-decoration:underline}
+.more{margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap}
+.pill{justify-self:start}
+}
+@media (max-width:520px){nav ul{gap:.9rem}nav a{font-size:.82rem}}
+
+/* gentle hang-in for the frames; resting state is fully visible */
+@keyframes hang{from{transform:translateY(-6px) rotate(-.6deg)}to{transform:none}}
+.frame{animation:hang .7s cubic-bezier(.2,.7,.2,1) both}
+.f2{animation-delay:.05s}.f3{animation-delay:.1s}.f4{animation-delay:.15s}.f5{animation-delay:.2s}.f6{animation-delay:.25s}.f7{animation-delay:.3s}.f8{animation-delay:.35s}.f9{animation-delay:.4s}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="mark" href="#top">Charlie Li</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#advisory">Advisory</a></li>
+        <li><a href="#journal">Journal</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="label">Curator · Art advisor · Toronto</p>
+        <h1 style="margin-top:1rem">Charlie <em>Li</em></h1>
+        <p class="lede">I help people find, live with, and understand art, through a vintage gallery, an advisory practice, and work in museum education.</p>
+        <div class="roles">
+          <span class="label">Founder, Curio Party Art Gallery</span>
+          <span class="label">Founder, Curio Atelier</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#work">See my work</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <figure style="margin:0">
+        <div class="frame photo"><img src="images/home/gallery-wall-day.jpg" alt="Charlie Li's home gallery wall: paintings, prints and sculpture hung salon-style around a white piano" width="1086" height="1448"></div>
+        <figcaption class="label caption">My home gallery wall, rearranged regularly · <a href="https://www.instagram.com/curio.party/" target="_blank" rel="noopener">@curio.party</a></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap sec-head">
+      <div class="about-side"><span class="label">About</span><h2>An eye for art, a mind for operations</h2>
+        <figure class="about-photo portrait"><div class="frame photo"><img src="images/me/charlie-li-portrait.jpg" alt="Charlie Li seated at a white piano in front of a large mountain painting" width="800" height="1200" loading="lazy"></div></figure></div>
+      <div class="prose">
+        <p class="big">Since 2021 I've run Curio Party, a vintage visual-art gallery built around accessible collecting, pop-up exhibitions and online storytelling.</p>
+        <p>Through Curio Atelier I advise collectors and artists on choosing, presenting and living with work. I also publish an art opinion journal, <a href="https://www.curioatelier.com/blogs" target="_blank" rel="noopener">The Curio Journal</a>, where I share my views on the works, artists and exhibitions I encounter. And I plan exhibitions, bringing together the artists, collectors and venues behind each show.</p>
+        <p>My other career is in technology. I lead production services for AI platforms at a major Canadian bank, which taught me calm facilitation, clear communication with every kind of audience, and how to run things reliably when people are counting on them. I bring all of that to the art world.</p>
+        <p>I trained as an engineer at the University of Toronto, play piano, and speak English and Mandarin.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="label">Selected work</span><h2>On the wall</h2></div>
+        <p class="prose">Each project below is labelled the way a museum labels a work: what it is, when, and what it's made of.</p>
+      </div>
+      <article class="feature">
+        <div class="feature-photos">
+          <img class="big" src="images/exhibitions/poetry-of-the-ordinary/04-installation-wall.jpg" alt="Installation view of The Poetry of the Ordinary: framed works hung salon-style on a white gallery wall" loading="lazy">
+          <img src="images/exhibitions/poetry-of-the-ordinary/01-storefront-window.jpg" alt="Gallery storefront window on Parliament Street with paintings on view" loading="lazy">
+          <img src="images/exhibitions/poetry-of-the-ordinary/08-dress-form-detail.jpg" alt="Installation detail with vintage paintings and a textile dress form" loading="lazy">
+        </div>
+        <div class="feature-text">
+          <p class="label">Exhibition · Curator</p>
+          <h3>The Poetry of the Ordinary</h3>
+          <p class="meta">19 Frames, 523 Parliament St, Toronto · March 1–15, 2026</p>
+          <p class="medium">Paint, textile, paper and found materials</p>
+          <p>Curio Atelier's inaugural exhibition. I paired contemporary work by eight artists with vintage pieces from Curio Party to look at everyday moments: hands held, animals watching, tables set.</p>
+          <p class="artists">Jackie Bradshaw, Stephanie Baron, Brent Hardisty, Bradley Reinhardt, Riesbri, Charlotte Sigurdson, Laura Thippawong, Amy Thomson, with vintage works by Ivor Monk, Emir A. and unsigned Japanese and Canadian artists.</p>
+          <a href="https://www.curioatelier.com/events/the-poetry-of-the-ordinary" target="_blank" rel="noopener">See the full exhibition</a>
+        </div>
+      </article>
+      <div class="labels">
+        <!-- To add a project, copy one <article class="wl"> block and edit the text. -->
+        <article class="wl">
+          <p class="label">Gallery</p>
+          <h3>Curio Party Art Gallery</h3>
+          <p class="meta">Toronto, 2021–present</p>
+          <p class="medium">Vintage art, pop-up exhibitions, online storytelling</p>
+          <p class="text">An independent gallery that makes collecting approachable. I source and curate vintage and emerging-artist work and write the stories that go with each piece.</p>
+          <a href="https://curioparty.com" target="_blank" rel="noopener">curioparty.com</a>
+        </article>
+        <article class="wl">
+          <p class="label">Advisory</p>
+          <h3>Curio Atelier</h3>
+          <p class="meta">Toronto, 2021–present</p>
+          <p class="medium">Art advisory for collectors and artists</p>
+          <p class="text">One-on-one guidance on artwork selection, collecting goals, framing and presentation, and the visual story a collection tells.</p>
+          <a href="https://www.curioatelier.com/" target="_blank" rel="noopener">curioatelier.com</a>
+        </article>
+        <article class="wl">
+          <p class="label">Writing</p>
+          <h3>The Curio Journal</h3>
+          <p class="meta">Curio Atelier, 2025–present</p>
+          <p class="medium">Art opinion essays, artist features, fair reports. Guest writing in <em>The Secret Door</em></p>
+          <p class="text">My writing on collecting and the art world, from Art Basel Miami Beach and the Outsider Art Fair to Pacita Abad and Herb and Dorothy Vogel.</p>
+          <a href="https://www.curioatelier.com/blogs" target="_blank" rel="noopener">Read the journal</a>
+        </article>
+        <article class="wl">
+          <p class="label">Museum</p>
+          <h3>Volunteer, Education Program</h3>
+          <p class="meta">Aga Khan Museum, 2026–present</p>
+          <p class="medium">Gallery guiding and visitor experience</p>
+          <p class="text">Supporting the museum's education team with tours and visitor engagement.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="advisory">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="label">Curio Atelier</span><h2>Art advisory</h2></div>
+        <p class="prose">For new collectors who don't know where to start, and seasoned ones who want a second eye.</p>
+      </div>
+      <div class="services">
+        <div class="svc"><h3>Finding work</h3><p>Sourcing vintage and emerging-artist pieces that fit your taste, space and budget.</p></div>
+        <div class="svc"><h3>Presentation</h3><p>Framing, hanging and arranging, from a single piece to a full salon wall.</p></div>
+        <div class="svc"><h3>Collecting goals</h3><p>Shaping a collection with direction, so each new piece adds to the whole.</p></div>
+        <div class="svc"><h3>Artist support</h3><p>Artist statements, positioning, and presenting work to collectors.</p></div>
+      </div>
+      <h3 class="sub">Collected interiors</h3>
+      <div class="homes">
+          <figure class="home"><img src="images/clients/midtown-toronto.jpg" alt="Wall of framed art and sculpture above a table with dried flowers" loading="lazy"><figcaption><strong>Midtown Toronto</strong><span>Artwork by Amy Thomson, placed through Curio Atelier</span><span class="credit">Photo: Mariana Silveira, @the_decor_studio</span></figcaption></figure>
+          <figure class="home"><img src="images/clients/worcester-massachusetts.jpg" alt="Stair landing with a stained glass window and framed art" loading="lazy"><figcaption><strong>Worcester, Massachusetts</strong><span>Artwork by Brent Hardisty, placed through Curio Atelier</span><span class="credit">Photo: Juliet Fernandez</span></figcaption></figure>
+          <figure class="home"><img src="images/clients/trophy-club-texas.jpg" alt="Bedroom wall hung with colourful vintage paintings" loading="lazy"><figcaption><strong>Trophy Club, Texas</strong><span>Vintage artwork, placed through Curio Atelier</span><span class="credit">Photo: Judy Aldrige, @atlantishome</span></figcaption></figure>
+          <figure class="home"><img src="images/clients/houston-texas.jpg" alt="Living room gallery wall above a floral armchair" loading="lazy"><figcaption><strong>Houston, Texas</strong><span>Vintage artwork, placed through Curio Atelier</span><span class="credit">Photo: Autumn Bockart, @autumnsummerluv</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="journal">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="label">The Curio Journal</span><h2>Notes on looking</h2></div>
+        <p class="prose">My opinions on art, artists, fairs and collecting, published on the Curio Atelier blog.</p>
+      </div>
+      <div class="journal">
+        <!-- To add a post: copy an .entry block to the top and change the date, link, title, summary and tag. -->
+        <article class="entry">
+          <p class="label">Jul 2026</p>
+          <div><h3><a class="plain" href="https://www.curioatelier.com/blogs/how-do-you-know-when-a-work-of-art-is-the-one" target="_blank" rel="noopener">How do you know when a work of art is “the one”?</a></h3><p>Finding Stephanie Baron’s <em>Boogie</em>, and how instinct and repeated looking tell you a piece belongs in your home.</p></div>
+          <span class="pill">Essay</span>
+        </article>
+        <article class="entry">
+          <p class="label">Mar 2026</p>
+          <div><h3><a class="plain" href="https://www.curioatelier.com/blogs/after-the-outsider-art-fair-2026-what-outsider-is-signaling-now" target="_blank" rel="noopener">After the Outsider Art Fair 2026</a></h3><p>What the “outsider” label signals now, and why it calls for more deliberate collecting.</p></div>
+          <span class="pill">Fair report</span>
+        </article>
+        <article class="entry">
+          <p class="label">Feb 2026</p>
+          <div><h3><a class="plain" href="https://www.thesecretdoor.ca/post/patchwork-collecting-bipoc-outsider-and-vintage-art-for-real-homes" target="_blank" rel="noopener">Patchwork collecting: BIPOC, outsider and vintage art for real homes</a></h3><p>Published in <em>The Secret Door</em>. A case for building a home collection from BIPOC, self-taught, emerging and vintage artists, without wealth, credentials or a perfectly coherent plan.</p></div>
+          <span class="pill">Guest essay</span>
+        </article>
+        <article class="entry">
+          <p class="label">Jan 2026</p>
+          <div><h3><a class="plain" href="https://www.curioatelier.com/blogs/stitching-a-brighter-world-starting-the-year-with-pacita-abad" target="_blank" rel="noopener">Stitching a brighter world: Pacita Abad</a></h3><p>Starting the year with Pacita Abad and her trapunto paintings.</p></div>
+          <span class="pill">Artist</span>
+        </article>
+        <article class="entry">
+          <p class="label">Dec 2025</p>
+          <div><h3><a class="plain" href="https://www.curioatelier.com/blogs/herb-amp-dorothy-vogel-and-the-quiet-power-of-passionate-collecting" target="_blank" rel="noopener">Herb &amp; Dorothy Vogel and the quiet power of passionate collecting</a></h3><p>Two New York civil servants who built a great collection and lived surrounded by it.</p></div>
+          <span class="pill">Collecting</span>
+        </article>
+        </div>
+      <div class="more">
+        <a class="btn" href="https://www.curioatelier.com/blogs" target="_blank" rel="noopener">All journal posts</a>
+        <a class="btn" href="https://www.curioatelier.com/artist-feature" target="_blank" rel="noopener">Artist features</a>
+        <a class="btn" href="https://www.curioatelier.com/events" target="_blank" rel="noopener">Events</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="label">CV</span><h2>Experience</h2></div>
+        <p class="prose">Art practice, technology leadership, and the training behind both.</p>
+      </div>
+      <div class="cv">
+        <div>
+          <h3>Experience</h3>
+          <ul>
+            <li><strong>Founder, Curator &amp; Art Advisor</strong><span>Curio Party Art Gallery &amp; Curio Atelier · 2021–present</span></li>
+            <li><strong>Associate Director, Production Services Lead</strong><span>Global investment bank, Toronto · 2026–present</span></li>
+            <li><strong>Site Reliability Engineer</strong><span>Global investment bank, Toronto · 2019–2026</span></li>
+            <li><strong>Associate Project Lead</strong><span>Agfa Graphics NV, Belgium · 2014–2015</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <ul>
+            <li><strong>Master of Engineering, Mechanical &amp; Industrial Engineering</strong><span>University of Toronto</span></li>
+            <li><strong>Bachelor of Applied Science, Materials Engineering</strong><span>University of Toronto</span></li>
+            <li><strong>Engineering Business Certificate</strong><span>Rotman School of Management</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Interests</h3>
+          <div class="tags">
+            <span>Gallery guiding</span><span>Visitor experience</span><span>Curatorial research</span>
+            <span>Exhibition support</span><span>Public programs</span><span>Digital engagement</span><span>Art-tech</span>
+          </div>
+          <h3 style="margin-top:1.75rem">Languages</h3>
+          <div class="tags"><span>English</span><span>Mandarin</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <span class="label">Contact</span>
+      <h2 style="margin-top:.75rem">Let's talk about art.</h2>
+      <p class="prose" style="margin-top:1rem">For advisory, exhibitions, collaborations or museum opportunities.</p>
+      <div class="row">
+        <span class="email" id="email">charlie.li1407@gmail.com</span>
+        <button class="copy" id="copy" type="button">Copy email</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="label">© 2026 Charlie Li</span>
+    <span class="label">Toronto, Canada</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('copy').addEventListener('click', function(){
+  var btn=this, text=document.getElementById('email').textContent;
+  function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email'},1800)}
+  try{
+    navigator.clipboard.writeText(text).then(done,function(){selectIt()});
+  }catch(e){selectIt()}
+  function selectIt(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected, press Ctrl+C'}
+});
+</script>
+</body>
+</html>
