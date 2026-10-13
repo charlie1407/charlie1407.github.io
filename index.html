@@ -7,7 +7,7 @@
 <meta name="description" content="Charlie Li — curator, art advisor and founder of Curio Party Art Gallery and Curio Atelier, Toronto.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,500&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: a museum wall. Hero pairs the name with a salon-hung wall of frames;
    every body section is written like a wall label (title, date, medium line, text). */
@@ -20,7 +20,7 @@
   --gilt:#A8854F;       /* frame moulding */
   --mat:#F7F6F1;        /* frame mat / label card */
   --rule:#C3C8BF;
-  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --display:"Newsreader", Georgia, "Times New Roman", serif;
   --body:"Figtree", "Helvetica Neue", Arial, sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
@@ -33,7 +33,7 @@ body{background:var(--wall);color:var(--ink);font-family:var(--body);font-size:1
 .wrap{max-width:72rem;margin:0 auto;padding-inline:clamp(1rem,4vw,2.5rem)}
 a{color:var(--accent);text-underline-offset:.2em}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;margin:0}
 p{margin:0}
 .label{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
 
@@ -104,12 +104,12 @@ section .wrap{padding-block:clamp(3.5rem,7vw,5.5rem)}
 .wl a{font-size:.9rem;margin-top:.5rem}
 
 /* Exhibition feature */
-.feature{margin-top:2.75rem;display:grid;align-items:start;grid-template-columns:minmax(0,1fr);gap:clamp(1.5rem,3vw,2.5rem);background:var(--mat);border:1px solid var(--rule);padding:clamp(1rem,2vw,1.5rem)}
+.feature{margin-top:2.75rem;display:grid;align-items:start;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,2.5rem);background:var(--mat);border:1px solid var(--rule);padding:clamp(1rem,2vw,1.5rem)}
 .feature-photos{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
 .feature-photos{align-items:start}
 .feature-photos img{width:100%;height:auto;min-height:0;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--wall-2)}
 .feature-photos img.big{grid-column:1/-1;aspect-ratio:16/10}
-.feature-text{display:grid;gap:.45rem;align-content:start;max-width:62ch}
+.feature-text{display:grid;gap:.45rem;align-content:start}
 .feature-text h3{font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.1}
 .feature-text .meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft)}
 .feature-text .medium{font-style:italic;color:var(--ink-soft);font-size:.95rem}
@@ -242,6 +242,11 @@ footer .wrap{padding-block:1.75rem;display:flex;justify-content:space-between;ga
         <p class="prose">Each project below is labelled the way a museum labels a work: what it is, when, and what it's made of.</p>
       </div>
       <article class="feature">
+        <div class="feature-photos">
+          <img class="big" src="04-installation-wall.jpg" alt="Installation view of The Poetry of the Ordinary: framed works hung salon-style on a white gallery wall" loading="lazy">
+          <img src="01-storefront-window.jpg" alt="Gallery storefront window on Parliament Street with paintings on view" loading="lazy">
+          <img src="08-dress-form-detail.jpg" alt="Installation detail with vintage paintings and a textile dress form" loading="lazy">
+        </div>
         <div class="feature-text">
           <p class="label">Exhibition · Curator</p>
           <h3>The Poetry of the Ordinary</h3>
