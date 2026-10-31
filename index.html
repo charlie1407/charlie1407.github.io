@@ -130,6 +130,13 @@ section .wrap{padding-block:clamp(3.5rem,7vw,5.5rem)}
 .svc h3{font-size:1.25rem;margin-bottom:.4rem}
 .svc p{font-size:.95rem;color:var(--ink-soft)}
 
+/* Institutions / pilot callout */
+.pilot{margin-top:2.75rem;background:var(--mat);border:1px solid var(--rule);padding:clamp(1.5rem,3vw,2.25rem);display:grid;gap:.75rem}
+.pilot h3{font-size:clamp(1.4rem,2.6vw,1.75rem);line-height:1.15}
+.pilot p{max-width:58ch}
+.pilot .cta{margin-top:.5rem}
+.built-with{margin-top:1.25rem;font-size:.88rem;color:var(--ink-soft)}
+
 /* Journal */
 .journal{margin-top:2.5rem;display:grid}
 .entry{display:grid;grid-template-columns:8rem minmax(0,1fr) auto;gap:1rem 2rem;padding-block:1.25rem;border-bottom:1px solid var(--rule);align-items:baseline}
@@ -191,6 +198,7 @@ footer .wrap{padding-block:1.75rem;display:flex;justify-content:space-between;ga
         <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#advisory">Advisory</a></li>
+        <li><a href="#institutions">For Institutions</a></li>
         <li><a href="#journal">Journal</a></li>
         <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -312,6 +320,28 @@ footer .wrap{padding-block:1.75rem;display:flex;justify-content:space-between;ga
           <figure class="home"><img src="worcester-massachusetts.jpg" alt="Stair landing with a stained glass window and framed art" loading="lazy"><figcaption><strong>Worcester, Massachusetts</strong><span>Artwork by Brent Hardisty, placed through Curio Atelier</span><span class="credit">Photo: Juliet Fernandez</span></figcaption></figure>
           <figure class="home"><img src="trophy-club-texas.jpg" alt="Bedroom wall hung with colourful vintage paintings" loading="lazy"><figcaption><strong>Trophy Club, Texas</strong><span>Vintage artwork, placed through Curio Atelier</span><span class="credit">Photo: Judy Aldrige, @atlantishome</span></figcaption></figure>
           <figure class="home"><img src="houston-texas.jpg" alt="Living room gallery wall above a floral armchair" loading="lazy"><figcaption><strong>Houston, Texas</strong><span>Vintage artwork, placed through Curio Atelier</span><span class="credit">Photo: Autumn Bockart, @autumnsummerluv</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="institutions">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="label">For galleries &amp; institutions</span><h2>I build the back office, not just the advice</h2></div>
+        <p class="prose">Most galleries and small institutions run on spreadsheets, memory, and whoever's been there longest. My other career is leading production operations for a technology platform used by hundreds of people a day — I bring that same discipline to a gallery's back end, and I build the tools myself rather than just recommending one.</p>
+      </div>
+      <div class="services">
+        <div class="svc"><h3>Inventory &amp; collection tracking</h3><p>Moving past spreadsheets into a system that tracks works, locations and status without someone's memory being the backup.</p></div>
+        <div class="svc"><h3>Client &amp; sales follow-up</h3><p>A simple, reliable way to track inquiries, holds and follow-ups so nothing falls through the cracks during a fair or opening.</p></div>
+        <div class="svc"><h3>Reporting &amp; dashboards</h3><p>Clear, current numbers on sales, inventory and visitor activity — built once and updated automatically instead of rebuilt by hand.</p></div>
+        <div class="svc"><h3>Process &amp; documentation</h3><p>Written procedures for recurring tasks — intake, invoicing, shipping — so the gallery runs the same way whether or not any one person is in the room.</p></div>
+      </div>
+      <p class="built-with">I build this myself using modern software tools, including Claude Code, rather than outsourcing it or handing over a slide deck.</p>
+      <div class="pilot">
+        <p class="label">Free pilot</p>
+        <h3>See it working before anything's signed</h3>
+        <p>I'll build one small, working piece of this — a tracking system, a report, an intake workflow — free, scoped to one real problem you have right now. If it's useful, we talk about what's next. If it's not, you've lost nothing.</p>
+        <div class="cta"><a class="btn primary" href="#contact">Start a conversation</a></div>
       </div>
     </div>
   </section>
